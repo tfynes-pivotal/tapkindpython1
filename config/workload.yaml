@@ -1,0 +1,17 @@
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: tapkindpython1
+  labels:
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/part-of: tapkindpython1
+spec:
+  source:
+    git:
+      url: https://github.com/tfynes-pivotal/tapkindpython1
+      ref:
+        branch: main
+  build:
+    env:
+      - name: BP_FUNCTION
+        value: func.main
